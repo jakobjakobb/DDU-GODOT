@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@onready var animation = $AnimatedSprite2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -400.0
 const WALL_SLOWDOWN = 0.8
@@ -26,14 +26,19 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			stick_to_wall = false
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		animation.animation = "walk"
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		animation.animation = "idle"
+		
+		
+	if Input.is_action_pressed("left"):
+		animation.flip_h = true
+	if Input.is_action_pressed("right"):
+		animation.flip_h = false
 	move_and_slide()
 
 

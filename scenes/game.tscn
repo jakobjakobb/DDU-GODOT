@@ -186,6 +186,6 @@ tile_set = SubResource("TileSet_yf5fn")
 [node name="Area2D" type="Area2D" parent="." unique_id=105731071]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=12423896]
-polygon = PackedVector2Array(299, 41, 731, 63, 800, -132, 1390, -161, 1640, -432, 1966, -389, 2362, -602, 2448, -974, 2492, 309, 299, 251)
+polygon = PackedVector2Array(299, 41, 774, 23, 800, -132, 1390, -161, 1568, -388, 1973, -415, 2338, -623, 2438, -939, 2492, 309, 299, 251)
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
