@@ -367,7 +367,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0u6y"]
-radius = 4.0
+radius = 5.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1030030293]
@@ -376,9 +376,9 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052826947]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"climb"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.8220715
+frame_progress = 0.82159364
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103224810]
 position = Vector2(0, -7)
