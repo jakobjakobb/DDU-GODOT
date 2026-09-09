@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmg6jhd8ko6x3" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://df6clng0nle4o" path="res://scenes/flag.tscn" id="3_lnu2h"]
 [ext_resource type="FontFile" uid="uid://dxskviqirutq" path="res://assets/fonts/PixelOperator8.ttf" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bwr6n7e3pevk6" path="res://scenes/platform.tscn" id="5_pevkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("2_yqjtg")
@@ -171,8 +172,8 @@ texture = ExtResource("2_yqjtg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 
-[sub_resource type="Animation" id="Animation_lbhrr"]
-resource_name = "Platform"
+[sub_resource type="Animation" id="Animation_iywne"]
+resource_name = "Dersert platform 1"
 length = 4.0
 loop_mode = 2
 tracks/0/type = "value"
@@ -188,7 +189,7 @@ tracks/0/keys = {
 "values": [Vector2(961, -491), Vector2(1311, -491)]
 }
 
-[sub_resource type="Animation" id="Animation_iywne"]
+[sub_resource type="Animation" id="Animation_p57ef"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -203,10 +204,10 @@ tracks/0/keys = {
 "values": [Vector2(961, -491)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5sy4"]
 _data = {
-&"Platform": SubResource("Animation_lbhrr"),
-&"RESET": SubResource("Animation_iywne")
+&"Dersert platform 1": SubResource("Animation_iywne"),
+&"RESET": SubResource("Animation_p57ef")
 }
 
 [node name="Game" type="Node2D" unique_id=1722854224]
@@ -240,12 +241,19 @@ metadata/teleport_to = Vector2(504, -90)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzones/Area2D" unique_id=12423896]
 polygon = PackedVector2Array(299, 41, 774, 23, 800, -132, 1390, -161, 1568, -388, 1973, -415, 2338, -623, 2438, -939, 2492, 309, 299, 251)
 
-[node name="Platform" parent="." unique_id=901554556 instance=ExtResource("3_lnu2h")]
+[node name="Platforms" type="Node" parent="." unique_id=1981721024]
+
+[node name="Dersert" type="Node" parent="Platforms" unique_id=1479104943]
+
+[node name="Dersertplatform 1" parent="Platforms/Dersert" unique_id=901554556 instance=ExtResource("4_lbhrr")]
 position = Vector2(961, -491)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform" unique_id=1075617808]
-libraries/ = SubResource("AnimationLibrary_p57ef")
-autoplay = &"Platform"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Dersert/Dersertplatform 1" unique_id=34036575]
+libraries/ = SubResource("AnimationLibrary_u5sy4")
+autoplay = &"Dersert platform 1"
+
+[node name="Dersertplatform 2" parent="Platforms/Dersert" unique_id=1464885094 instance=ExtResource("4_lbhrr")]
+position = Vector2(1580, -534)
 
 [node name="Labels" type="Node" parent="." unique_id=558406643]
 
