@@ -28,6 +28,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x += LAUNCH_VELOCITY * launch_direction
 			velocity.y = JUMP_VELOCITY
 			stick_to_wall = false
+	
+	if Input.is_action_just_pressed("down"):
+		if is_on_wall() and stick_to_wall:
+			stick_to_wall = false
 
 	var direction := Input.get_axis("left", "right")
 	if direction:
@@ -46,7 +50,7 @@ func _state_process() -> void:
 	var direction = wall_direction if wall_direction else input_direction
 	if Input.is_action_just_pressed("jump"):
 		state = "jumping"
-	elif is_on_wall():
+	elif is_on_wall() and stick_to_wall:
 		state = "climbing"
 	elif not is_on_floor():
 		state = "falling"
