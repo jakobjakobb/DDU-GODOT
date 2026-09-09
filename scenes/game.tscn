@@ -245,14 +245,14 @@ polygon = PackedVector2Array(299, 41, 774, 23, 800, -132, 1390, -161, 1568, -388
 
 [node name="Dersert" type="Node" parent="Platforms" unique_id=1479104943]
 
-[node name="Dersertplatform 1" parent="Platforms/Dersert" unique_id=901554556 instance=ExtResource("4_lbhrr")]
+[node name="Dersertplatform 1" parent="Platforms/Dersert" unique_id=901554556 instance=ExtResource("5_pevkr")]
 position = Vector2(961, -491)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Dersert/Dersertplatform 1" unique_id=34036575]
 libraries/ = SubResource("AnimationLibrary_u5sy4")
 autoplay = &"Dersert platform 1"
 
-[node name="Dersertplatform 2" parent="Platforms/Dersert" unique_id=1464885094 instance=ExtResource("4_lbhrr")]
+[node name="Dersertplatform 2" parent="Platforms/Dersert" unique_id=1464885094 instance=ExtResource("5_pevkr")]
 position = Vector2(1580, -534)
 
 [node name="Labels" type="Node" parent="." unique_id=558406643]
