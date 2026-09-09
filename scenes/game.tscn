@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqojwtkhlj8x7" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bmg6jhd8ko6x3" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bwr6n7e3pevk6" path="res://scenes/platform.tscn" id="3_lnu2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("2_yqjtg")
@@ -169,10 +170,49 @@ texture = ExtResource("2_yqjtg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 
+[sub_resource type="Animation" id="Animation_lbhrr"]
+resource_name = "Platform"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(961, -491), Vector2(1311, -491)]
+}
+
+[sub_resource type="Animation" id="Animation_iywne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(961, -491)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
+_data = {
+&"Platform": SubResource("Animation_lbhrr"),
+&"RESET": SubResource("Animation_iywne")
+}
+
 [node name="Game" type="Node2D" unique_id=1722854224]
 position = Vector2(-184, -52)
 
 [node name="Player" parent="." unique_id=1030030293 instance=ExtResource("1_uwrxv")]
+z_index = 5
 position = Vector2(504, -87)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1341253292]
@@ -187,5 +227,12 @@ tile_set = SubResource("TileSet_yf5fn")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=12423896]
 polygon = PackedVector2Array(299, 41, 774, 23, 800, -132, 1390, -161, 1568, -388, 1973, -415, 2338, -623, 2438, -939, 2492, 309, 299, 251)
+
+[node name="Platform" parent="." unique_id=901554556 instance=ExtResource("3_lnu2h")]
+position = Vector2(961, -491)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform" unique_id=1075617808]
+libraries/ = SubResource("AnimationLibrary_p57ef")
+autoplay = &"Platform"
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
