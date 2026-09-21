@@ -7,7 +7,19 @@ const JUMP_VELOCITY = -400.0
 const LAUNCH_VELOCITY = 750.0
 const WALL_SLOWDOWN = 0.8
 
+const ANIMATION_STATES = {
+	"idling": "idle",
+	"climbing": "climb",
+	"falling": "jump",
+	"jumping": "jump",
+	"walking": "walk"
+}
+
 var stick_to_wall = true
+var current_state = "idling"
+var current_action = null
+var current_direction = 0
+
 
 func _physics_process(delta: float) -> void:
 
@@ -41,34 +53,48 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	_state_process()
+	_action_process()
+	_sprite_change()
 
 func _state_process() -> void:
-	var state
 	var wall_direction = _get_wall_direction()
 	var input_direction = Input.get_axis("left", "right")
-	var direction = wall_direction if wall_direction else input_direction
+	current_direction = wall_direction if wall_direction else input_direction
 	if Input.is_action_just_pressed("jump"):
-		state = "jumping"
+		current_state = "jumping"
 	elif is_on_wall() and stick_to_wall:
-		state = "climbing"
+		current_state = "climbing"
 	elif not is_on_floor():
-		state = "falling"
-	elif direction: 
-		state = "walking"
+		current_state = "falling"
+	elif current_direction: 
+		current_state = "walking"
 	else:
-		state = "idling"
-	_sprite_change(state, direction)
+		current_state = "idling"
 
-	
-func _sprite_change(state, direction) -> void:
-	if direction: animated_sprite.flip_h = true if direction < 0 else false
-	match state:
-		"idling": animated_sprite.animation = "idle"
-		"climbing": animated_sprite.animation = "climb"
-		"falling": animated_sprite.animation = "jump"
-		"jumping": animated_sprite.animation = "jump"
-		"walking": animated_sprite.animation = "walk"
+func _sprite_change() -> void:
+	if current_direction: animated_sprite.flip_h = true if current_direction < 0 else false
+	if current_action:
+		var animation_finished = animated_sprite.animation_finished
+		if animation_finished not in [true, false]: animation_finished = false
+		print(animated_sprite.animation," ", current_action, " ", animation_finished)
+		if animation_finished: current_action = null; print(1)
+		elif animated_sprite.animation in ANIMATION_STATES.keys(): match current_action:
+			"primary_attack": animated_sprite.animation = ["attack_slash_down", "attack_slash_up"].pick_random()
+			"secondary_attack": animated_sprite.animation = "attack_cast"
+			"falling_attack":
+				animated_sprite.animation = "attack_fall_fall" if current_state == "falling" else "attack_fall_land"
+			
+	else: animated_sprite.animation = ANIMATION_STATES[current_state]
 
+func _action_process() -> void:
+	if current_action: return
+	if Input.is_action_just_pressed("primary"):
+		current_action = "primary_attack"
+	elif Input.is_action_just_pressed("secondary"):
+		current_action = "secondary_attack"
+	elif Input.is_action_pressed("down") and current_state == "falling":
+		current_action = "falling_attack"
+		
 func _get_wall_direction() -> int:
 	if not is_on_wall(): return 0
 	for i in range(get_slide_collision_count()):
@@ -78,3 +104,6 @@ func _get_wall_direction() -> int:
 		elif collision.get_normal().x < 0:
 			return 1
 	return 0
+
+		
+		
