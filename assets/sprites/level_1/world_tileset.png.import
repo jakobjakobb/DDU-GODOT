@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bso0q1xbaagvi"
-path="res://.godot/imported/fruit.png-3735163b668af10c2b35b52cba81b68a.ctex"
+uid="uid://bmg6jhd8ko6x3"
+path="res://.godot/imported/world_tileset.png-cd540e2840491819a542ef4c85f1cf9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruit.png"
-dest_files=["res://.godot/imported/fruit.png-3735163b668af10c2b35b52cba81b68a.ctex"]
+source_file="res://assets/sprites/level_1/world_tileset.png"
+dest_files=["res://.godot/imported/world_tileset.png-cd540e2840491819a542ef4c85f1cf9a.ctex"]
 
 [params]
 

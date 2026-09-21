@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://df6clng0nle4o"]
 
 [ext_resource type="Script" uid="uid://dosnpn4ykupu2" path="res://scripts/flag.gd" id="1_32e5v"]
-[ext_resource type="Texture2D" uid="uid://dquevr8sutbq7" path="res://assets/sprites/flag.png" id="1_76ss4"]
+[ext_resource type="Texture2D" uid="uid://dquevr8sutbq7" path="res://assets/sprites/level_1/flag.png" id="1_76ss4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(12, 31)

@@ -25,8 +25,7 @@ func _physics_process(delta: float) -> void:
 			
 		if is_on_wall() and stick_to_wall:
 			var launch_direction = _get_wall_direction() * -1
-			velocity.x += LAUNCH_VELOCITY * launch_direction
-			velocity.y = JUMP_VELOCITY
+			velocity = Vector2(LAUNCH_VELOCITY * launch_direction, JUMP_VELOCITY)
 			stick_to_wall = false
 	
 	if Input.is_action_just_pressed("down"):
