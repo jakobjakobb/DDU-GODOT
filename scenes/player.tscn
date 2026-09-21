@@ -372,6 +372,7 @@ height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1030030293]
 script = ExtResource("1_g2els")
+metadata/spawnpoint = Vector2(0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052826947]
 position = Vector2(0, -8)

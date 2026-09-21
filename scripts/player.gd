@@ -78,6 +78,3 @@ func _get_wall_direction() -> int:
 		elif collision.get_normal().x < 0:
 			return 1
 	return 0
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	position = Vector2(512, -80)

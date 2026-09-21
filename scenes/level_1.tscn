@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmg6jhd8ko6x3" path="res://assets/sprites/level_1/world_tileset.png" id="1_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://df6clng0nle4o" path="res://scenes/flag.tscn" id="2_4nkto"]
+[ext_resource type="Script" uid="uid://0ronbq1r26fy" path="res://scripts/killzone.gd" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://bwr6n7e3pevk6" path="res://scenes/platform.tscn" id="3_fcfvj"]
 [ext_resource type="FontFile" uid="uid://dxskviqirutq" path="res://assets/fonts/PixelOperator8.ttf" id="4_pa8r4"]
 
@@ -229,6 +230,7 @@ metadata/teleport_to = Vector2(504, -90)
 [node name="Killzones" type="Node" parent="." unique_id=1867768087]
 
 [node name="Area2D" type="Area2D" parent="Killzones" unique_id=1026867301]
+script = ExtResource("3_4nkto")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzones/Area2D" unique_id=1257143588]
 polygon = PackedVector2Array(299, 41, 774, 23, 800, -132, 1390, -161, 1568, -388, 1973, -415, 2338, -623, 2488, -1348, 2492, 309, 299, 251)
@@ -319,3 +321,5 @@ rotation = 0.79943126
 theme_override_fonts/font = ExtResource("4_pa8r4")
 theme_override_font_sizes/font_size = 8
 text = "^"
+
+[connection signal="body_entered" from="Killzones/Area2D" to="Killzones/Area2D" method="_on_body_entered"]
