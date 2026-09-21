@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlormok0wlw48"]
+
+[ext_resource type="Script" uid="uid://g3wbrn32eqs8" path="res://scripts/vfx_player.gd" id="1_hcyjg"]
+
+[node name="vfx_player" type="Node2D" unique_id=816579128]
+script = ExtResource("1_hcyjg")
