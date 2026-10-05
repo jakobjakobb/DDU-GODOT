@@ -6,10 +6,11 @@
 [node name="Game" type="Node2D" unique_id=1722854224]
 
 [node name="Player" parent="." unique_id=1030030293 instance=ExtResource("1_uwrxv")]
-position = Vector2(-1, -33)
+position = Vector2(4151, -149)
+metadata/spawnpoint = Vector2(4151, -149)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1341253292]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="level_2" parent="." unique_id=889894665 instance=ExtResource("3_lnu2h")]
