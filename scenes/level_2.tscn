@@ -170,7 +170,10 @@ sources/0 = SubResource("TileSetAtlasSource_b4j7a")
 size = Vector2(947, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(64, 10.625)
+size = Vector2(33, 10.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(64.5, 12.5)
 
 [node name="level_2" type="Node2D" unique_id=889894665]
 
@@ -248,6 +251,6 @@ shape = SubResource("RectangleShape2D_yf5fn")
 position = Vector2(4976, 75)
 shape = SubResource("RectangleShape2D_yf5fn")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Killzone/Area2D" unique_id=1672050349]
-position = Vector2(5312, 107)
-shape = SubResource("RectangleShape2D_yf5fn")
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Killzone/Area2D" unique_id=1124412444]
+position = Vector2(5311.75, 108.25)
+shape = SubResource("RectangleShape2D_57qmd")
