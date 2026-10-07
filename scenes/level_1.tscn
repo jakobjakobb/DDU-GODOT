@@ -368,7 +368,4 @@ metadata/enemy_type = "green_slime"
 position = Vector2(1898, -729)
 ENEMY_TYPE = "purple_slime"
 
-[node name="ChangeLevel" parent="." unique_id=1918402390 instance=ExtResource("2_pa8r4")]
-position = Vector2(-27, -129)
-
 [connection signal="body_entered" from="Killzones/Area2D" to="Killzones/Area2D" method="_on_body_entered"]

@@ -11,6 +11,7 @@ script = ExtResource("1_udu3i")
 
 [node name="Player" parent="." unique_id=1030030293 instance=ExtResource("1_glms7")]
 position = Vector2(-2, -2)
+UNLOCKED_TERTIARY = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=588663630]
 zoom = Vector2(3, 3)

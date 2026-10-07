@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dyb5x2ncsopg"]
+
+[ext_resource type="Script" uid="uid://drwoinotxgdkj" path="res://scripts/win_text.gd" id="1_h5a2l"]
+[ext_resource type="FontFile" uid="uid://dxskviqirutq" path="res://assets/fonts/PixelOperator8.ttf" id="2_7gqsm"]
+
+[node name="WinText" type="Node2D" unique_id=1009832369]
+script = ExtResource("1_h5a2l")
+metadata/found_crowns = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=840272926]
+offset_top = 3.0
+offset_right = 138.0
+offset_bottom = 15.0
+theme_override_fonts/normal_font = ExtResource("2_7gqsm")
+theme_override_font_sizes/normal_font_size = 8
+text = "Du har nået toppen!"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=598848665]
+offset_top = 19.0
+offset_right = 138.0
+offset_bottom = 31.0
+theme_override_fonts/normal_font = ExtResource("2_7gqsm")
+theme_override_font_sizes/normal_font_size = 8
+text = "Du fandt 0/2 kroner"
+scroll_active = false
+horizontal_alignment = 1

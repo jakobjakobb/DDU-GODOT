@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://br4cnqece7vq6"]
 
 [ext_resource type="Texture2D" uid="uid://c4pnwxfh0u43n" path="res://assets/sprites/level_2/world_building/Tileset.png" id="1_jm1iu"]
-[ext_resource type="Texture2D" uid="uid://cdkp2kvo0b72" path="res://assets/sprites/level_2/Made maps things/Spike cat game 10-05-2026 10-50-30.png" id="2_b4j7a"]
+[ext_resource type="Texture2D" uid="uid://cdkp2kvo0b72" path="res://assets/sprites/level_2/Made map things/Spike cat game 10-05-2026 10-50-30.png" id="2_b4j7a"]
 [ext_resource type="Texture2D" uid="uid://b3vhebqdbrwee" path="res://assets/sprites/level_2/world_building/Decors.png" id="2_pbc48"]
 [ext_resource type="Script" uid="uid://yprxb3xl5q8" path="res://scripts/killing_tile_map.gd" id="3_y0kc7"]
 [ext_resource type="PackedScene" uid="uid://c6jq31bjs8mtm" path="res://scenes/enemy.tscn" id="5_ne2mo"]
 [ext_resource type="Script" uid="uid://0ronbq1r26fy" path="res://scripts/killzone.gd" id="6_wo48x"]
 [ext_resource type="PackedScene" uid="uid://dxtwhljmqsye6" path="res://scenes/wizard.tscn" id="9_6cvei"]
+[ext_resource type="PackedScene" uid="uid://dyb5x2ncsopg" path="res://scenes/win_text.tscn" id="10_hey2k"]
 [ext_resource type="PackedScene" uid="uid://bob4b6ofxopa4" path="res://scenes/collectable.tscn" id="10_que50"]
 [ext_resource type="PackedScene" uid="uid://df6clng0nle4o" path="res://scenes/flag.tscn" id="11_hey2k"]
 
@@ -285,5 +286,8 @@ checkpoint = true
 [node name="Flag3" parent="." unique_id=82086358 instance=ExtResource("11_hey2k")]
 position = Vector2(5320, -544)
 checkpoint = true
+
+[node name="WinText" parent="." unique_id=1009832369 instance=ExtResource("10_hey2k")]
+position = Vector2(4910, -1929)
 
 [connection signal="body_entered" from="Killzone/Area2D" to="Killzone/Area2D" method="_on_body_entered"]

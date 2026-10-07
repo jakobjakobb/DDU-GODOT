@@ -25,4 +25,5 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	has_been_collected = true
 	body.collected_collectibles += 1
+	GameManager.collected_crowns += 1
 	visible = false
