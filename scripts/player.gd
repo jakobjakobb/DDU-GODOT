@@ -62,8 +62,6 @@ func _ready() -> void:
 
 # Physics
 func _physics_process(delta: float) -> void:
-	#print(current_state, " :: ", global_position, " :: ", velocity)
-	#print()
 	_handle_coyote_time(delta)
 	_handle_gravity(delta)
 	_handle_jump()
@@ -82,6 +80,7 @@ func _process(delta: float) -> void:
 func die() -> void:
 	health = HEALTH
 	global_position = get_meta("spawnpoint")
+	velocity = Vector2(0,0)
 	
 func _handle_health() -> void:
 	health_bar.value = max(health, 0.0)
@@ -94,7 +93,7 @@ func _handle_health() -> void:
 func _handle_death() -> void:
 	if current_action == "death":
 		return
-		
+	
 	_start_action("death")
 	
 func _handle_coyote_time(delta: float) -> void:
@@ -232,6 +231,7 @@ func _start_action(action: String) -> void:
 			)
 		"death":
 			_play_animation("death")
+			velocity = Vector2(0,0)
 			
 				
 func _on_animation_finished() -> void:
@@ -332,11 +332,8 @@ func _get_wall_direction() -> int:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("1")
 	if not (body is TileMapLayer):
 		return
-	print("2")
 	if not body.is_in_group("kill_tiles"):
 		return
-	print("3")
 	health = 0
