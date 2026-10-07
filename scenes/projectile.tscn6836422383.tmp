@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d18o4rb784eh3"]
+
+[ext_resource type="Script" uid="uid://bme2axqnwakdg" path="res://scripts/projectile.gd" id="1_6q2a6"]
+[ext_resource type="Texture2D" uid="uid://bxmql1umwwfnb" path="res://assets/sprites/meow.png" id="1_c8fcr"]
+[ext_resource type="Texture2D" uid="uid://dxy7ooku13dyw" path="res://assets/sprites/effects/Lightning/lightning_burst_001/lightning_burst_001_large_violet/spritesheet.png" id="1_softn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_softn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2a6"]
+atlas = ExtResource("1_softn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3m7n"]
+atlas = ExtResource("1_c8fcr")
+region = Rect2(117, 178, 12, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_byeak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q2a6")
+}],
+"loop": 1,
+"name": &"magic",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3m7n")
+}],
+"loop": 1,
+"name": &"sword",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(3, 3)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1657628032]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_softn")
+gravity_scale = 0.0
+script = ExtResource("1_6q2a6")
+metadata/speed = 0.0
+metadata/duration = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=758822961]
+sprite_frames = SubResource("SpriteFrames_byeak")
+animation = &"sword"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=456950854]
+shape = SubResource("RectangleShape2D_yf5fn")

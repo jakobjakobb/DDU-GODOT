@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c2wg8g43moiwa" path="res://assets/sprites/effects/Impacts/directional_impact_002/directional_impact_002_small_white/spritesheet.png" id="1_d7t0g"]
 [ext_resource type="Texture2D" uid="uid://by7vsppt4w1fs" path="res://assets/sprites/effects/Impacts/symmetrical_impact_002/symmetrical_impact_002_small_blue/spritesheet.png" id="2_hnd13"]
 [ext_resource type="Texture2D" uid="uid://b72mxa4yif5gb" path="res://assets/sprites/effects/Impacts/symmetrical_impact_002/symmetrical_impact_002_large_blue/spritesheet.png" id="2_mkq35"]
+[ext_resource type="Texture2D" uid="uid://dxy7ooku13dyw" path="res://assets/sprites/effects/Lightning/lightning_burst_001/lightning_burst_001_large_violet/spritesheet.png" id="2_tsiwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hnd13"]
 atlas = ExtResource("1_d7t0g")
@@ -32,17 +33,25 @@ region = Rect2(350, 0, 70, 25)
 atlas = ExtResource("1_d7t0g")
 region = Rect2(420, 0, 70, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ebds"]
-atlas = ExtResource("2_mkq35")
-region = Rect2(0, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwhmx"]
+atlas = ExtResource("2_tsiwy")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0uuuo"]
-atlas = ExtResource("2_mkq35")
-region = Rect2(96, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0atfs"]
+atlas = ExtResource("2_tsiwy")
+region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahpld"]
-atlas = ExtResource("2_mkq35")
-region = Rect2(192, 0, 96, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_173j4"]
+atlas = ExtResource("2_tsiwy")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpj06"]
+atlas = ExtResource("2_tsiwy")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47k0v"]
+atlas = ExtResource("2_tsiwy")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3jx4"]
 atlas = ExtResource("2_mkq35")
@@ -142,14 +151,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ebds")
+"texture": SubResource("AtlasTexture_fwhmx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0uuuo")
+"texture": SubResource("AtlasTexture_0atfs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ahpld")
+"texture": SubResource("AtlasTexture_173j4")
 }, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpj06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47k0v")
+}],
+"loop": 0,
+"name": &"purple_explosion",
+"speed": 15.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h3jx4")
 }, {

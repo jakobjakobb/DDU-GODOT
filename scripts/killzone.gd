@@ -1,5 +1,10 @@
 extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D: body.position = body.get_meta("spawnpoint")
-		
+	if not (body is CharacterBody2D):
+		return
+	if body.is_in_group("players"):
+		body.die()
+		return
+	
+	body.queue_free()

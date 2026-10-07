@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dxtwhljmqsye6"]
+
+[ext_resource type="Texture2D" uid="uid://bo66dthvl1bqa" path="res://assets/sprites/level_2/wizard.png" id="1_3jsmo"]
+[ext_resource type="Script" uid="uid://bjslyxpc4g1j2" path="res://scripts/wizard.gd" id="1_leome"]
+[ext_resource type="FontFile" uid="uid://dxskviqirutq" path="res://assets/fonts/PixelOperator8.ttf" id="3_j4iv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leome"]
+atlas = ExtResource("1_3jsmo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4iv4"]
+atlas = ExtResource("1_3jsmo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nmnu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leome")
+}],
+"loop": 1,
+"name": &"no_staff",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4iv4")
+}],
+"loop": 1,
+"name": &"staff",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+radius = 5.0
+height = 26.0
+
+[node name="Wizard" type="Area2D" unique_id=469882171]
+script = ExtResource("1_leome")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1035767824]
+position = Vector2(2, -7)
+sprite_frames = SubResource("SpriteFrames_nmnu7")
+animation = &"staff"
+autoplay = "staff"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322327351]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Panel" type="Panel" parent="." unique_id=1812700441]
+offset_left = -63.0
+offset_top = -40.0
+offset_right = 73.0
+offset_bottom = -17.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1645494197]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 138.0
+offset_bottom = 23.0
+theme_override_fonts/normal_font = ExtResource("3_j4iv4")
+theme_override_font_sizes/normal_font_size = 8
+text = "Tag denne tryllestav, du får brug for den"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="." unique_id=1117254795]
+visible = false
+offset_left = -45.0
+offset_top = -39.0
+offset_right = 60.0
+offset_bottom = -17.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2" unique_id=1627528605]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 101.0
+offset_bottom = 23.0
+theme_override_fonts/normal_font = ExtResource("3_j4iv4")
+theme_override_font_sizes/normal_font_size = 8
+text = "Tryk 'L' for at bruge den!"
+scroll_active = false
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
