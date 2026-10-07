@@ -647,26 +647,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0u6y"]
-radius = 6.0
-height = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
-bg_color = Color(0.1721153, 0.17211533, 0.1721152, 0.40784314)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
-bg_color = Color(0.71, 0.021299979, 0.021299979, 1)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 7.0
-height = 18.0
+radius = 5.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1030030293]
 script = ExtResource("1_g2els")
@@ -675,30 +657,10 @@ metadata/spawnpoint = Vector2(0, 0)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052826947]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"death"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2103224810]
+visible = false
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_d0u6y")
-
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=378991751]
-offset_left = -7.0
-offset_top = -19.0
-offset_right = 7.0
-offset_bottom = -15.0
-scale = Vector2(1, 0.39999998)
-theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
-value = 50.0
-show_percentage = false
-
-[node name="Area2D" type="Area2D" parent="." unique_id=877850508]
-collision_layer = 255
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=238754368]
-position = Vector2(0, -7)
-shape = SubResource("CapsuleShape2D_qhqgy")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

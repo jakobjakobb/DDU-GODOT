@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="DDU_INTRO"
-run/main_scene="uid://bd1f514sytxvs"
+run/main_scene="uid://bcnkxawcobqam"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
 VfxPlayer="*uid://dlormok0wlw48"
+ProjectilePlayer="*uid://c70hi7hu8hyol"
+GameManager="*uid://cgjjxfn628bxo"
 
 [display]
 
@@ -59,6 +62,11 @@ primary={
 secondary={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":75,"key_label":0,"unicode":107,"location":0,"echo":false,"script":null)
+]
+}
+tertiary={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"location":0,"echo":false,"script":null)
 ]
 }
 

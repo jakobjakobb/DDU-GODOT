@@ -1,8 +1,15 @@
 extends Area2D
+@export var checkpoint = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D: 
-		var pos = get_meta("teleport_to")
-		body.set_meta("spawnpoint", pos)
-		body.position = pos
+	if not (
+		body is CharacterBody2D
+		and body.is_in_group("players")
+	):
+		return
+	
+	var pos = global_position if checkpoint else get_meta("teleport_to")
+	body.set_meta("spawnpoint", pos)
+	if not checkpoint:
+		body.global_position = pos
 		
