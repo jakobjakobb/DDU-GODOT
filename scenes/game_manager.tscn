@@ -19,7 +19,7 @@ zoom = Vector2(3, 3)
 z_index = -100
 scroll_scale = Vector2(1.1, 1.1)
 repeat_size = Vector2(384, 0)
-repeat_times = 10
+repeat_times = 30
 
 [node name="Sprite2D2" type="Sprite2D" parent="Player/Camera2D/Parallax2D" unique_id=2008217430]
 z_index = 1
